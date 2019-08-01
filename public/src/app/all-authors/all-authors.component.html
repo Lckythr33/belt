@@ -1,0 +1,32 @@
+<button [routerLink]="['/restaurants/new']" type="button" class="btn btn-secondary">New Restaurant</button>
+<table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Restaurant Name</th>
+            <th scope="col">Cuisine</th>
+
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let author of allAuthors">
+            <td>{{ author.name }}</td>
+            <td>{{ author.cuisine }}</td>
+        
+            
+            
+            <!-- <td> <button [routerLink]="['/restaurants', author._id ,'reviews']" type="button" class="btn btn-success">Write Review</button>  -->
+            <td> <button [routerLink]="['/restaurants', author._id]" type="button" class="btn btn-success">View</button> 
+            <button type="button" class="btn btn-success" (click)='update(author)'>Edit</button> 
+            <app-delete-button [restaurant]='author' (event)='getAllAuthors()'></app-delete-button>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <section *ngIf= 'clicked'>
+
+        <app-edit-author [clickRes]='updateRestaurant' (updateEvent)="updated()"></app-edit-author>
+      
+      </section>

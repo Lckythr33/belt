@@ -1,0 +1,44 @@
+<button [routerLink]="['/restaurants']" type="button" class="btn btn-secondary">Cancel</button>
+
+<!-- Material form subscription -->
+<div class="card">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+            <strong>Register New Restaurant!</strong>
+        </h5>
+    
+<div *ngIf='errorsObject'>
+    <p class='text-danger' *ngFor='let item of errorsObject | keyvalue'>
+        {{item.value.message}}
+    </p>
+</div>
+
+        <!--Card content-->
+        <div class="card-body px-lg-5">
+    
+            <!-- Form -->
+            <form (submit)='createNewAuthor()' class="text-center" style="color: #757575;" action="#!">
+
+                <!-- Name -->
+                <div class="md-form mt-3">
+                    <input type="text" id="materialSubscriptionFormPasswords" class="form-control" name='newAuthor.name' [(ngModel)]='newAuthor.name' >
+                    <label for="materialSubscriptionFormPasswords">Name</label>
+                </div>
+    
+                <!-- Name -->
+                <div class="md-form mt-3">
+                    <input type="text" id="materialSubscriptionFormPasswords" class="form-control" name='newAuthor.age' [(ngModel)]='newAuthor.cuisine'>
+                    <label for="materialSubscriptionFormPasswords">Cuisine</label>
+                </div>
+    
+        
+                <!-- Sign in button -->
+                <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Submit</button>
+    
+            </form>
+            <!-- Form -->
+    
+        </div>
+    
+    </div>
+    <!-- Material form subscription -->

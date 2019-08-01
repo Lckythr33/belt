@@ -1,0 +1,21 @@
+<div *ngIf='errorsObject'>
+    <p class='text-danger' *ngFor='let item of errorsObject | keyvalue'>
+        {{item.value.message}}
+    </p>
+</div>
+
+
+<form (submit) = "editAuthor()">
+    <p>
+        <label for="name">Name: </label>
+        <input type="text" name="clickRes.name" [(ngModel)]="clickRes.name">
+    </p>
+
+    <p>
+            <label for="age">Cuisine: </label>
+            <input type="text" name="clickRes.cuisine" [(ngModel)]="clickRes.cuisine">
+        </p>
+       <button class="btn btn-success">Update!</button> 
+
+       <button (click)='cancel($event)' class="btn btn-danger">Cancel!</button> 
+</form>
